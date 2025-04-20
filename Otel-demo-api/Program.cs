@@ -18,6 +18,15 @@ builder.Services.AddOpenTelemetry()
             {
                 opts.Endpoint = new Uri("http://localhost:4317");
             })
+    )
+     .WithTracing(tracing =>
+        tracing
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddOtlpExporter(opt =>
+            {
+                opt.Endpoint = new Uri("http://localhost:4317");
+            })
     );
 
 builder.Logging.AddOpenTelemetry(logging =>
@@ -26,7 +35,7 @@ builder.Logging.AddOpenTelemetry(logging =>
     logging.ParseStateValues = true;
     logging.AddOtlpExporter(options =>
     {
-        options.Endpoint = new Uri("http://otel-collector:4317");
+        options.Endpoint = new Uri("http://localhost:4317");
     });
 });
 
