@@ -1,0 +1,71 @@
+# Build files
+bin/
+obj/
+out/
+
+# User-specific files
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+logs/
+*.log
+debug.log
+error.log
+
+# Environment files
+.env
+.env.local
+secrets.json
+
+# Dependency caches
+node_modules/
+packages/
+
+# .NET and NuGet
+*.nupkg
+project.lock.json
+project.assets.json
+*.nuspec
+.nuget/
+.nuget/packages/
+packages/
+artifacts/
+
+# Visual Studio
+.vs/
+*.csproj.user
+*.dbmdl
+*.pdb
+
+# Resharper and Rider
+.idea/
+*.DotSettings.user
+
+# Docker
+docker-compose.override.yml
+*.dockerfile.user
+
+# IIS and Hosting
+appsettings.Development.json
+appsettings.Local.json
+appsettings.Production.json
+appsettings.Test.json
+
+# Coverage and Test Results
+TestResults/
+coverage/
+coverage.info
+*.coverage
+*.coveragexml
+
+# macOS and Linux
+.DS_Store
+._*
+
+# Windows
+Thumbs.db
+desktop.ini
