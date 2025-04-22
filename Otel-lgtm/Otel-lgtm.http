@@ -1,0 +1,6 @@
+@Otel_lgtm_HostAddress = http://localhost:5155
+
+GET {{Otel_lgtm_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

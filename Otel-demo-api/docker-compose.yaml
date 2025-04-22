@@ -38,15 +38,15 @@ services:
       - monitoring
 
   grafana:
-    image: grafana/grafana-oss:latest
-    container_name: grafana
-    ports:
-      - '3000:3000' # 19924
-    volumes:
-      - grafana-data:/var/lib/grafana
-    restart: unless-stopped
-    networks:
-      - monitoring
+   image: grafana/grafana-oss:latest
+   container_name: grafana
+   ports:
+    - '3000:3000' # 19924
+   volumes:
+    - grafana-data:/var/lib/grafana
+   restart: unless-stopped
+   networks:
+    - monitoring
 
   node_exporter:
     image: quay.io/prometheus/node-exporter:v1.5.0
@@ -60,7 +60,7 @@ services:
       - /:/rootfs:ro
     networks:
       - monitoring
-  
+
   loki:
     image: grafana/loki:2.9.2
     container_name: loki
@@ -72,14 +72,13 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - monitoring
-  
+
   tempo:
-    image: grafana/tempo:2.3.1
+    image: grafana/tempo:latest
     container_name: tempo
-    ports:
-       - "3200:3200"   # tempo      
-       - "4319:4317"
     command: [ "-config.file=/etc/tempo.yaml" ]
     volumes:
-      - ./tempo.yml:/etc/tempo.yaml
-      - ./tmp/tempo:/tmp/tempo
+      - ./tempo.yaml:/etc/tempo.yaml
+      - ./tempo-data:/var/tempo
+    ports:
+      - "3200" # tempo
